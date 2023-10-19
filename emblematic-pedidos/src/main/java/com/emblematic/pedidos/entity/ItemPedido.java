@@ -1,5 +1,7 @@
 package com.emblematic.pedidos.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -20,10 +22,12 @@ public class ItemPedido {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	private String nombre;
-	private int cantidad;
+	private Integer cantidad;
+	private String idProducto;
 	private double precioUnitario;
 	private double precioTotal;
+	private boolean entregado;
+	@JsonBackReference
 	@ManyToOne
 	private Pedido pedido;
 

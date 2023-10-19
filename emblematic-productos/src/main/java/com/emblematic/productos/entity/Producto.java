@@ -18,6 +18,7 @@ public class Producto {
 	private String id;
 	private String nombre;
 	private String descripcion;
+	private double precioUnitario;
 	private Integer stock;
 	@DBRef
 	private Categoria categoria;
