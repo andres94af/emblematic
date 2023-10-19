@@ -27,12 +27,22 @@ public class ProductoController {
 	@Autowired
 	CategoriaService categoriaService;
 
+	/**
+	 * 
+	 * @return Retorna un listado de los productos existentes en la base de datos.
+	 */
 	@GetMapping
 	public ResponseEntity<List<Producto>> listarProductos() {
 		List<Producto> productos = productoService.listar();
 		return ResponseEntity.ok(productos);
 	}
 	
+	/**
+	 * Crea un nuevo producto a partir del producto recibido en el body, en la categoria recibida como parametro.
+	 * @param producto
+	 * @param idCategoria
+	 * @return Retorna el nuevo producto creado en la base de datos.
+	 */
 	@PostMapping("/{idCategoria}")
 	public ResponseEntity<Producto> crearProducto(@RequestBody Producto producto, @PathVariable String idCategoria) {
 		Optional<Categoria> categoriaOpt = categoriaService.buscarPorId(idCategoria);

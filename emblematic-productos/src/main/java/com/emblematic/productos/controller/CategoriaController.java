@@ -19,12 +19,21 @@ public class CategoriaController {
 	@Autowired
 	CategoriaService categoriaService;
 
+	/**
+	 * 
+	 * @return Retorna listado de categorias de productos existentes en la base de datos.
+	 */
 	@GetMapping
 	public ResponseEntity<List<Categoria>> listarCategorias() {
 		List<Categoria> categoria = categoriaService.listar();
 		return ResponseEntity.ok(categoria);
 	}
 
+	/**
+	 * Crea un nueva categoria con el nombre que recibe como parametro.
+	 * @param nombreCategoria
+	 * @return Retorna la nueva categoria creada en la base de datos.
+	 */
 	@PostMapping("/nueva/{nombreCategoria}")
 	public ResponseEntity<Categoria> crearCategoria(@PathVariable String nombreCategoria) {
 		Optional<Categoria> categoriaOpt = categoriaService.buscarPorNombre(nombreCategoria);

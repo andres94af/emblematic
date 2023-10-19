@@ -30,6 +30,10 @@ public class PedidoController {
 
 	private Pedido pedido = new Pedido();
 
+	/**
+	 * 
+	 * @return Retorna listado de pedidos completo.
+	 */
 	@GetMapping("")
 	public ResponseEntity<List<Pedido>> listarPedidos() {
 		List<Pedido> pedidos = pedidoService.listarPedidos();
@@ -37,7 +41,7 @@ public class PedidoController {
 	}
 
 	/**
-	 * @return Retorna listado actual de items agregados
+	 * @return Retorna listado actual de items agregados.
 	 */
 	@GetMapping("/items")
 	public ResponseEntity<List<ItemPedido>> listarItemsActuales() {
@@ -64,7 +68,7 @@ public class PedidoController {
 	 * que recibe como parametro en numeroMesa.
 	 * 
 	 * @param numeroMesa
-	 * @return Retorna el pedido guardado en la base de datos
+	 * @return Retorna el pedido guardado en la base de datos.
 	 */
 	@PostMapping("/crearPedido/{numeroMesa}")
 	public ResponseEntity<Pedido> guardarPedido(@PathVariable Integer numeroMesa) {
